@@ -5,6 +5,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 
 public class Model {
 	
@@ -12,12 +13,14 @@ public class Model {
 	private int[][] population;
 	private Integer[][] nEe;
 	private ArrayList<Exam> Exams;
+	private HashSet<String> Students;
 	
 	
 	public Model() {
 		super();
 		this.numTimeSlots = 0;
 		Exams = new ArrayList<Exam>();
+		Students = new HashSet<String>();
 	}	
 	
 	public boolean loadSlo(String file) {
@@ -57,6 +60,7 @@ public class Model {
 	            String idStudent = parts[1];
 	            
 	            Exam e = new Exam(idExam);
+	            Students.add(idStudent);
 	            
 	            if(!this.Exams.contains(e)) {
 	            	e.addStudent(idStudent);
@@ -69,7 +73,7 @@ public class Model {
 			
 
 			br.close();
-			System.out.println("Numero esami " + Exams.size());
+			System.out.println("Numero esami " + Exams.size() + "\nNumero Studenti " + Students.size());
 			
 			return true;
 

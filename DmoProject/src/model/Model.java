@@ -56,8 +56,8 @@ public class Model {
 
 			while ((st = br.readLine()) != null) {
 				String[] parts = st.split(" ");
-				String idExam = parts[0];
-	            String idStudent = parts[1];
+				String idExam = parts[1];
+	            String idStudent = parts[0];
 	            
 	            Exam e = new Exam(idExam);
 	            Students.add(idStudent);
